@@ -1,7 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const errorHandler = require("./app/_helpers");
+const errorHandler = require("./server/_helpers");
 
 // Set up the express app
 const app = express();
@@ -11,10 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // endpoints of apps
-const getByStatusRouter = require("./app/routes").router;
+const getByStatusRouter = require("./server/routes").router;
  app.use(getByStatusRouter);
     
- const postSalesRouter = require("./app/routes").router;
+ const postSalesRouter = require("./server/routes").router;
  app.use(postSalesRouter);
 
 // global error handler
