@@ -1,18 +1,19 @@
-const Sales  = require('../models/').Sales  ;
+const Sales  = require('../models/');
 async function addSales(NewSales){
     if(!NewSales.userName && !NewSales.amount ){
         throw "username and amount required";
-    }
-   const Item =  await Sales.create({
+    } else {
+     return await Sales.create({
        userName: NewSales.userName,
        amount: NewSales.amount,
        date: NewSales.date
    })
-   return Item;
+}
 }
 
 async function getSalesByStatus(){
-    
+    const sale  = await  Sales.findAll({
+    })
 }
 
 module.exports = {
